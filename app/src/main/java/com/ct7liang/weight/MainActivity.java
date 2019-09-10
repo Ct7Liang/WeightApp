@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
+import com.ct7liang.tangyuan.recyclerview.OnItemLongClickListener;
 import com.ct7liang.tangyuan.utils.ScreenUtil;
 import com.ct7liang.tangyuan.utils.ToastUtils;
 import com.ct7liang.weight.adapter.WeightHorizontalAdapter;
@@ -24,7 +25,7 @@ import java.util.Locale;
 import greendao.ct7liang.weight.GreenDaoHelper;
 import greendao.ct7liang.weight.WeightDao;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements OnItemLongClickListener {
 
     private WeightDao weightDao;
     private List<Weight> list;
@@ -43,6 +44,7 @@ public class MainActivity extends BaseActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         weightAdapter = new WeightHorizontalAdapter(this, list);
+        weightAdapter.setOnItemLongClickListener(this);
         recyclerView.setAdapter(weightAdapter);
 
         findViewById(R.id.iv_back).setOnClickListener(this);
@@ -78,6 +80,32 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void setStatusBar() {
         findViewById(R.id.title_bar).setPadding(0, ScreenUtil.getUtils().getStatusHeight(this),0,0);
+    }
+
+    @Override
+    public void onLongClick(View view, final int position) {
+        new WindowUtils().create(this, R.layout.window_delete_weight, 0, 0, new WindowUtils.OnContentViewInitListener() {
+            @Override
+            public void onContentViewInited(final Dialog dialog, View contentView) {
+                contentView.findViewById(R.id.cancel).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+                contentView.findViewById(R.id.commit).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Weight weight = list.get(position);
+                        weightDao.delete(weight);
+                        list.remove(weight);
+                        weightAdapter.notifyDataSetChanged();
+                        ToastUtils.showStatic(MainActivity.this, "记录删除成功");
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
     }
 
     private void showWindow(){

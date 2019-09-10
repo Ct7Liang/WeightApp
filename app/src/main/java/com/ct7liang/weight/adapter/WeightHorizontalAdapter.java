@@ -70,6 +70,7 @@ public class WeightHorizontalAdapter extends BaseRecyclerViewAdapter {
             title = itemView.findViewById(R.id.tv_content);
             lvv = itemView.findViewById(R.id.linear_vertical_view);
             empty = itemView.findViewById(R.id.empty);
+            itemView.setOnLongClickListener(this);
         }
 
         @Override
@@ -79,6 +80,9 @@ public class WeightHorizontalAdapter extends BaseRecyclerViewAdapter {
 
         @Override
         public boolean onLongClick(View v) {
+            if (mLongListener!=null){
+                mLongListener.onLongClick(v, getAdapterPosition());
+            }
             return false;
         }
     }
