@@ -57,6 +57,7 @@ public class SettingActivity extends BaseActivity {
         if (i > j){
             SpUtils.start().saveFloat("minWeight", j);
             SpUtils.start().saveFloat("maxWeight", i);
+            ToastUtils.showStatic(this, "设置成功");
         }else{
             ToastUtils.showStatic(this, "上限不能小于或等于下限");
         }

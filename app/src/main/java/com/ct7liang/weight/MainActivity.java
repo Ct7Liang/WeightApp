@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
+import com.ct7liang.tangyuan.utils.LogUtils;
 import com.ct7liang.tangyuan.utils.ScreenUtil;
 import com.ct7liang.tangyuan.utils.ToastUtils;
 import com.ct7liang.tangyuan.view_titlebar.TitleBarView;
@@ -70,7 +71,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == 61){
+        if (requestCode == 61){
             weightAdapter.refreshData();
             weightAdapter.notifyDataSetChanged();
         }
