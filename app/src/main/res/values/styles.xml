@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="dialog_bg" parent="android:style/Theme.Dialog">
+        <!--提示框的背景颜色（这里设置的是透明）-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--这个说明提示框是否有边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--提示框是否有标题-->
+        <item name="android:windowNoTitle">true</item>
+        <!--弹出框背景是否是灰色 false弹出框背景无阴影，true为灰色阴影显示-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--弹出框背景阴影透明度-->
+        <item name="android:backgroundDimAmount">0.5</item>
+
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+
+
+
+</resources>

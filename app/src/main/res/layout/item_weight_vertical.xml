@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <com.ct7liang.weight.view.LinearVerticalView
+        android:layout_marginLeft="1px"
+        android:layout_marginRight="1px"
+        android:id="@+id/linear_vertical_view"
+        android:layout_width="15dp"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"/>
+
+</RelativeLayout>
