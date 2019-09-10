@@ -9,10 +9,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
-import com.ct7liang.tangyuan.utils.LogUtils;
 import com.ct7liang.tangyuan.utils.ScreenUtil;
 import com.ct7liang.tangyuan.utils.ToastUtils;
-import com.ct7liang.tangyuan.view_titlebar.TitleBarView;
 import com.ct7liang.weight.adapter.WeightHorizontalAdapter;
 import com.ct7liang.weight.base.BaseActivity;
 import com.ct7liang.weight.bean.Weight;
