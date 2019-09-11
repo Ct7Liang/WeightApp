@@ -13,6 +13,7 @@ public class SettingActivity extends BaseActivity {
 
     private EditText editMin;
     private EditText editMax;
+    private SpUtils spUtils;
 
     @Override
     public int setLayout() {
@@ -22,8 +23,11 @@ public class SettingActivity extends BaseActivity {
     @Override
     public void initSurface() {
         initStatusBar();
+        spUtils = SpUtils.start();
         editMin = findViewById(R.id.edit_min);
         editMax = findViewById(R.id.edit_max);
+        editMin.setText(spUtils.getFloat("minWeight", 45)+"");
+        editMax.setText(spUtils.getFloat("maxWeight", 55)+"");
         findViewById(R.id.iv_back).setOnClickListener(this);
         findViewById(R.id.btn).setOnClickListener(this);
     }
@@ -52,11 +56,11 @@ public class SettingActivity extends BaseActivity {
             ToastUtils.showStatic(this, "内容不能为空");
             return;
         }
-        int i = Integer.parseInt(max);
-        int j = Integer.parseInt(min);
+        float i = Float.parseFloat(max);
+        float j = Float.parseFloat(min);
         if (i > j){
-            SpUtils.start().saveFloat("minWeight", j);
-            SpUtils.start().saveFloat("maxWeight", i);
+            spUtils.saveFloat("minWeight", j);
+            spUtils.saveFloat("maxWeight", i);
             ToastUtils.showStatic(this, "设置成功");
         }else{
             ToastUtils.showStatic(this, "上限不能小于或等于下限");

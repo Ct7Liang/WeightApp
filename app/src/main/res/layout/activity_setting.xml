@@ -39,19 +39,35 @@
         android:layout_below="@id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="体重下限:"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:layout_height="23dp"
+            android:text="体重下限(kg):"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textSize="14sp"
             android:gravity="center_vertical"/>
-        <EditText
-            android:id="@+id/edit_min"
-            android:inputType="number"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="23dp"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/edit_min"
+                android:inputType="number"
+                android:textSize="14sp"
+                android:background="@null"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="23dp" />
+            <View
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#FE8E46"/>
+        </RelativeLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -59,19 +75,35 @@
         android:layout_below="@id/view1"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="体重上限:"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:layout_height="23dp"
+            android:text="体重上限(kg):"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textSize="14sp"
             android:gravity="center_vertical"/>
-        <EditText
-            android:id="@+id/edit_max"
-            android:inputType="number"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="23dp"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/edit_max"
+                android:inputType="number"
+                android:textSize="14sp"
+                android:layout_width="match_parent"
+                android:background="@null"
+                android:gravity="center"
+                android:layout_height="23dp" />
+            <View
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#FE8E46"/>
+        </RelativeLayout>
+
     </LinearLayout>
 
     <TextView

@@ -1,5 +1,6 @@
 package com.ct7liang.weight;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
 import android.support.annotation.Nullable;
@@ -16,6 +17,7 @@ import com.ct7liang.weight.adapter.WeightHorizontalAdapter;
 import com.ct7liang.weight.base.BaseActivity;
 import com.ct7liang.weight.bean.Weight;
 import com.ct7liang.weight.utils.WindowUtils;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,6 +26,8 @@ import java.util.Locale;
 
 import greendao.ct7liang.weight.GreenDaoHelper;
 import greendao.ct7liang.weight.WeightDao;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 public class MainActivity extends BaseActivity implements OnItemLongClickListener {
 
@@ -50,6 +54,14 @@ public class MainActivity extends BaseActivity implements OnItemLongClickListene
         findViewById(R.id.iv_back).setOnClickListener(this);
         findViewById(R.id.iv_setting).setOnClickListener(this);
         findViewById(R.id.iv_add).setOnClickListener(this);
+
+        RxPermissions rxPermissions = new RxPermissions(this);
+        Disposable subscribe = rxPermissions.request(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_PHONE_STATE).subscribe(new Consumer<Boolean>() {
+            @Override
+            public void accept(Boolean aBoolean) throws Exception {
+
+            }
+        });
     }
 
     @Override
@@ -66,6 +78,11 @@ public class MainActivity extends BaseActivity implements OnItemLongClickListene
                 showWindow();
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        exitApp();
     }
 
     @Override

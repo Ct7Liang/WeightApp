@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.ct7liang.tangyuan.utils.LogUtils;
 import com.ct7liang.tangyuan.utils.SpUtils;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import greendao.ct7liang.weight.GreenDaoHelper;
 
@@ -20,6 +21,6 @@ public class App extends Application {
 
         GreenDaoHelper.init(this, "MyWeights");
 
-
+        CrashReport.initCrashReport(getApplicationContext(), "68a67ff35a", false);
     }
 }

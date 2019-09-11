@@ -41,6 +41,14 @@
                     android:src="@mipmap/add"
                     android:padding="13dp"/>
             </LinearLayout>
+            <TextView
+                android:text="我的体重"
+                android:textSize="17sp"
+                android:textColor="#FFFFFF"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"/>
         </RelativeLayout>
     </LinearLayout>
 

@@ -8,6 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="SplashActivityTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@mipmap/bg1</item>
+    </style>
+
     <style name="dialog_bg" parent="android:style/Theme.Dialog">
         <!--提示框的背景颜色（这里设置的是透明）-->
         <item name="android:windowBackground">@android:color/transparent</item>
