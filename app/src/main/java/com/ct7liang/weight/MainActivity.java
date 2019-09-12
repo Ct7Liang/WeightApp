@@ -54,6 +54,7 @@ public class MainActivity extends BaseActivity implements OnItemLongClickListene
         findViewById(R.id.iv_back).setOnClickListener(this);
         findViewById(R.id.iv_setting).setOnClickListener(this);
         findViewById(R.id.iv_add).setOnClickListener(this);
+        findViewById(R.id.iv_char_view).setOnClickListener(this);
 
         RxPermissions rxPermissions = new RxPermissions(this);
         Disposable subscribe = rxPermissions.request(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_PHONE_STATE).subscribe(new Consumer<Boolean>() {
@@ -76,6 +77,9 @@ public class MainActivity extends BaseActivity implements OnItemLongClickListene
                 break;
             case R.id.iv_add:
                 showWindow();
+                break;
+            case R.id.iv_char_view:
+                startActivity(new Intent(mAct, WeightDataActivity.class));
                 break;
         }
     }

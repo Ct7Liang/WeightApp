@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="com.ct7liang.weight.WeightDataActivity">
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/line_char"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.github.mikephil.charting.charts.LineChart>
+
+</RelativeLayout>
