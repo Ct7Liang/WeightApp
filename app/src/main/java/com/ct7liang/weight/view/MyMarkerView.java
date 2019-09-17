@@ -34,7 +34,10 @@ public class MyMarkerView extends MarkerView {
             tvContent.setText(Utils.formatNumber(ce.getHigh(), 0, true));
         } else {
             Weight weight = (Weight) e.getData();
-            tvContent.setText(Utils.formatNumber(e.getY(), 0, true));
+
+            tvContent.setText(weight.getDate() + " (" + weight.getWeight() + "kg)");
+
+//            tvContent.setText(Utils.formatNumber(e.getY(), 0, true));
         }
 
         super.refreshContent(e, highlight);

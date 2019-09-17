@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.ct7liang.tangyuan.utils.SpUtils;
@@ -70,10 +71,12 @@ public class WeightDataActivity extends BaseActivity implements OnChartValueSele
         chart.setPinchZoom(false);
 
         XAxis xAxis = chart.getXAxis();
+//        xAxis.enableGridDashedLine(10f, 10f, 100f);
         xAxis.enableAxisLineDashedLine(10f, 10f, 0f);
 
         YAxis yAxis = chart.getAxisLeft();
-        yAxis.enableAxisLineDashedLine(10f, 10f, 0f);
+        yAxis.enableGridDashedLine(10f, 10f, 0f);
+//        yAxis.enableAxisLineDashedLine(10f, 10f, 0f);
 
         //上限界限
         LimitLine ll1 = new LimitLine(spUtils.getFloat("maxWeight", 55), "体重上限");
