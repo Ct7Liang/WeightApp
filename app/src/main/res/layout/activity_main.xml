@@ -1,74 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#FFFFFF"
     tools:context="com.ct7liang.weight.MainActivity">
 
     <LinearLayout
-        android:id="@+id/title_bar"
+        android:id="@+id/top_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#FE8E46">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="48dp">
-            <ImageView
-                android:id="@+id/iv_back"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@mipmap/back"
-                android:padding="13dp"/>
-            <ImageView
-                android:layout_alignParentRight="true"
-                android:id="@+id/iv_add"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@mipmap/add"
-                android:padding="13dp"/>
-            <TextView
-                android:text="我的体重"
-                android:textSize="17sp"
-                android:textColor="#FFFFFF"
-                android:gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"/>
-        </RelativeLayout>
-    </LinearLayout>
+        android:background="@drawable/main_bg"
+        android:paddingBottom="20dp">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_below="@id/title_bar"
-        android:overScrollMode="never"
-        android:id="@+id/recycler_view"
-        android:background="#FFFFFF"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="48dp">
-    </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/title"
+                android:text="2020年10月21日"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="80"
+                    android:textColor="#ffffff"
+                    android:gravity="bottom"
+                    android:textSize="40sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:text="kg"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#ffffff"
+                    android:gravity="bottom"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="目标体重"
+                android:textColor="#ffffff"
+                android:gravity="top"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+            <LinearLayout style="@style/weight_value_ll_style"
+                android:paddingLeft="25dp">
+                <TextView
+                    android:text="早晨体重:"
+                    style="@style/weight_value_text1_style"/>
+                <TextView
+                    android:text="75kg"
+                    style="@style/weight_value_text2_style"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/weight_value_ll_style"
+                android:paddingRight="25dp">
+                <TextView
+                    android:text="距离目标:"
+                    style="@style/weight_value_text1_style"/>
+                <TextView
+                    android:text="75kg"
+                    style="@style/weight_value_text2_style"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                style="@style/weight_value_ll_style"
+                android:paddingLeft="25dp">
+                <TextView
+                    android:text="夜晚体重:"
+                    style="@style/weight_value_text1_style"/>
+                <TextView
+                    android:text="75kg"
+                    style="@style/weight_value_text2_style"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/weight_value_ll_style"
+                android:paddingRight="25dp">
+                <TextView
+                    android:text="距离目标:"
+                    style="@style/weight_value_text1_style"/>
+                <TextView
+                    android:text="75kg"
+                    style="@style/weight_value_text2_style"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="55dp"
         android:orientation="horizontal"
-        android:background="#FE8E46">
-        <ImageView
-            android:id="@+id/iv_setting"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@mipmap/setting"
-            android:padding="12dp"/>
-        <ImageView
-            android:id="@+id/iv_char_view"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:src="@mipmap/setting"
-            android:padding="12dp"/>
+        android:padding="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/shape_main_option_bg">
+        <TextView
+            android:id="@+id/go_calendar"
+            android:text="日历模式查看"
+            android:textColor="#FFFFFF"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/shape_main_option_bg">
+        <TextView
+            android:text="图表模式查看"
+            android:textColor="#FFFFFF"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+</LinearLayout>
