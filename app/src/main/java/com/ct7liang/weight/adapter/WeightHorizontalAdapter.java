@@ -48,8 +48,8 @@ public class WeightHorizontalAdapter extends BaseRecyclerViewAdapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof MyViewHolder){
             Weight weight = list.get(position);
-            ((MyViewHolder) holder).title.setText(weight.getDate() + "  " + weight.getWeight() + "kg");
-            ((MyViewHolder) holder).lvv.setSize(weight.getWeight(), minW, maxW, pW);
+//            ((MyViewHolder) holder).title.setText(weight.getDate() + "  " + weight.getWeight() + "kg");
+//            ((MyViewHolder) holder).lvv.setSize(weight.getWeight(), minW, maxW, pW);
             ((MyViewHolder) holder).empty.setVisibility(position == list.size()-1 ? View.GONE : View.VISIBLE);
         }
     }

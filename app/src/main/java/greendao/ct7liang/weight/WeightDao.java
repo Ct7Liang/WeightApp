@@ -25,15 +25,12 @@ public class WeightDao extends AbstractDao<Weight, Long> {
      */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Weight = new Property(1, float.class, "weight", false, "WEIGHT");
-        public final static Property Time = new Property(2, long.class, "time", false, "TIME");
-        public final static Property Date = new Property(3, String.class, "date", false, "DATE");
-        public final static Property Year = new Property(4, String.class, "year", false, "YEAR");
-        public final static Property Month = new Property(5, String.class, "month", false, "MONTH");
-        public final static Property Day = new Property(6, String.class, "day", false, "DAY");
-        public final static Property Hour = new Property(7, String.class, "hour", false, "HOUR");
-        public final static Property Minute = new Property(8, String.class, "minute", false, "MINUTE");
-        public final static Property Second = new Property(9, String.class, "second", false, "SECOND");
+        public final static Property Am = new Property(1, float.class, "am", false, "AM");
+        public final static Property Pm = new Property(2, float.class, "pm", false, "PM");
+        public final static Property Year = new Property(3, String.class, "year", false, "YEAR");
+        public final static Property Month = new Property(4, String.class, "month", false, "MONTH");
+        public final static Property Day = new Property(5, String.class, "day", false, "DAY");
+        public final static Property Time = new Property(6, long.class, "time", false, "TIME");
     }
 
 
@@ -50,15 +47,12 @@ public class WeightDao extends AbstractDao<Weight, Long> {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"WEIGHT\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
-                "\"WEIGHT\" REAL NOT NULL ," + // 1: weight
-                "\"TIME\" INTEGER NOT NULL ," + // 2: time
-                "\"DATE\" TEXT," + // 3: date
-                "\"YEAR\" TEXT," + // 4: year
-                "\"MONTH\" TEXT," + // 5: month
-                "\"DAY\" TEXT," + // 6: day
-                "\"HOUR\" TEXT," + // 7: hour
-                "\"MINUTE\" TEXT," + // 8: minute
-                "\"SECOND\" TEXT);"); // 9: second
+                "\"AM\" REAL NOT NULL ," + // 1: am
+                "\"PM\" REAL NOT NULL ," + // 2: pm
+                "\"YEAR\" TEXT," + // 3: year
+                "\"MONTH\" TEXT," + // 4: month
+                "\"DAY\" TEXT," + // 5: day
+                "\"TIME\" INTEGER NOT NULL );"); // 6: time
     }
 
     /** Drops the underlying database table. */
@@ -75,43 +69,24 @@ public class WeightDao extends AbstractDao<Weight, Long> {
         if (id != null) {
             stmt.bindLong(1, id);
         }
-        stmt.bindDouble(2, entity.getWeight());
-        stmt.bindLong(3, entity.getTime());
- 
-        String date = entity.getDate();
-        if (date != null) {
-            stmt.bindString(4, date);
-        }
+        stmt.bindDouble(2, entity.getAm());
+        stmt.bindDouble(3, entity.getPm());
  
         String year = entity.getYear();
         if (year != null) {
-            stmt.bindString(5, year);
+            stmt.bindString(4, year);
         }
  
         String month = entity.getMonth();
         if (month != null) {
-            stmt.bindString(6, month);
+            stmt.bindString(5, month);
         }
  
         String day = entity.getDay();
         if (day != null) {
-            stmt.bindString(7, day);
+            stmt.bindString(6, day);
         }
- 
-        String hour = entity.getHour();
-        if (hour != null) {
-            stmt.bindString(8, hour);
-        }
- 
-        String minute = entity.getMinute();
-        if (minute != null) {
-            stmt.bindString(9, minute);
-        }
- 
-        String second = entity.getSecond();
-        if (second != null) {
-            stmt.bindString(10, second);
-        }
+        stmt.bindLong(7, entity.getTime());
     }
 
     @Override
@@ -122,43 +97,24 @@ public class WeightDao extends AbstractDao<Weight, Long> {
         if (id != null) {
             stmt.bindLong(1, id);
         }
-        stmt.bindDouble(2, entity.getWeight());
-        stmt.bindLong(3, entity.getTime());
- 
-        String date = entity.getDate();
-        if (date != null) {
-            stmt.bindString(4, date);
-        }
+        stmt.bindDouble(2, entity.getAm());
+        stmt.bindDouble(3, entity.getPm());
  
         String year = entity.getYear();
         if (year != null) {
-            stmt.bindString(5, year);
+            stmt.bindString(4, year);
         }
  
         String month = entity.getMonth();
         if (month != null) {
-            stmt.bindString(6, month);
+            stmt.bindString(5, month);
         }
  
         String day = entity.getDay();
         if (day != null) {
-            stmt.bindString(7, day);
+            stmt.bindString(6, day);
         }
- 
-        String hour = entity.getHour();
-        if (hour != null) {
-            stmt.bindString(8, hour);
-        }
- 
-        String minute = entity.getMinute();
-        if (minute != null) {
-            stmt.bindString(9, minute);
-        }
- 
-        String second = entity.getSecond();
-        if (second != null) {
-            stmt.bindString(10, second);
-        }
+        stmt.bindLong(7, entity.getTime());
     }
 
     @Override
@@ -170,15 +126,12 @@ public class WeightDao extends AbstractDao<Weight, Long> {
     public Weight readEntity(Cursor cursor, int offset) {
         Weight entity = new Weight( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            cursor.getFloat(offset + 1), // weight
-            cursor.getLong(offset + 2), // time
-            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // date
-            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // year
-            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // month
-            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // day
-            cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7), // hour
-            cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8), // minute
-            cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9) // second
+            cursor.getFloat(offset + 1), // am
+            cursor.getFloat(offset + 2), // pm
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // year
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // month
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // day
+            cursor.getLong(offset + 6) // time
         );
         return entity;
     }
@@ -186,15 +139,12 @@ public class WeightDao extends AbstractDao<Weight, Long> {
     @Override
     public void readEntity(Cursor cursor, Weight entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setWeight(cursor.getFloat(offset + 1));
-        entity.setTime(cursor.getLong(offset + 2));
-        entity.setDate(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
-        entity.setYear(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
-        entity.setMonth(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
-        entity.setDay(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
-        entity.setHour(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
-        entity.setMinute(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
-        entity.setSecond(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
+        entity.setAm(cursor.getFloat(offset + 1));
+        entity.setPm(cursor.getFloat(offset + 2));
+        entity.setYear(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setMonth(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setDay(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
+        entity.setTime(cursor.getLong(offset + 6));
      }
     
     @Override

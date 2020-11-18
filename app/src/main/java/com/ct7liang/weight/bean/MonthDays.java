@@ -10,6 +10,8 @@ public class MonthDays {
 
     public List<Day> list;
 
+    public List<String> haveDataDays;
+
 
     public static class Day{
 

@@ -4,34 +4,32 @@ import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
 
+import java.io.Serializable;
+
 @Entity
-public class Weight {
+public class Weight implements Serializable {
+
+    private static final long serialVersionUID = 202011181610L;
 
     @Id(autoincrement = true)
     private Long id;
 
-    private float weight;
-    private long time;
-    private String date;
+    private float am;
+    private float pm;
     private String year;
     private String month;
     private String day;
-    private String hour;
-    private String minute;
-    private String second;
-    @Generated(hash = 1326852731)
-    public Weight(Long id, float weight, long time, String date, String year,
-            String month, String day, String hour, String minute, String second) {
+    private long time;
+    @Generated(hash = 305274258)
+    public Weight(Long id, float am, float pm, String year, String month,
+            String day, long time) {
         this.id = id;
-        this.weight = weight;
-        this.time = time;
-        this.date = date;
+        this.am = am;
+        this.pm = pm;
         this.year = year;
         this.month = month;
         this.day = day;
-        this.hour = hour;
-        this.minute = minute;
-        this.second = second;
+        this.time = time;
     }
     @Generated(hash = 1956860650)
     public Weight() {
@@ -42,23 +40,17 @@ public class Weight {
     public void setId(Long id) {
         this.id = id;
     }
-    public float getWeight() {
-        return this.weight;
+    public float getAm() {
+        return this.am;
     }
-    public void setWeight(float weight) {
-        this.weight = weight;
+    public void setAm(float am) {
+        this.am = am;
     }
-    public long getTime() {
-        return this.time;
+    public float getPm() {
+        return this.pm;
     }
-    public void setTime(long time) {
-        this.time = time;
-    }
-    public String getDate() {
-        return this.date;
-    }
-    public void setDate(String date) {
-        this.date = date;
+    public void setPm(float pm) {
+        this.pm = pm;
     }
     public String getYear() {
         return this.year;
@@ -78,24 +70,10 @@ public class Weight {
     public void setDay(String day) {
         this.day = day;
     }
-    public String getHour() {
-        return this.hour;
+    public long getTime() {
+        return this.time;
     }
-    public void setHour(String hour) {
-        this.hour = hour;
+    public void setTime(long time) {
+        this.time = time;
     }
-    public String getMinute() {
-        return this.minute;
-    }
-    public void setMinute(String minute) {
-        this.minute = minute;
-    }
-    public String getSecond() {
-        return this.second;
-    }
-    public void setSecond(String second) {
-        this.second = second;
-    }
-
-
 }

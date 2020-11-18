@@ -1,6 +1,8 @@
 package com.ct7liang.weight.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -8,21 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ct7liang.weight.CalendarActivity;
 import com.ct7liang.weight.R;
 import com.ct7liang.weight.bean.MonthDays;
-
-import java.util.zip.Inflater;
 
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.DayViewHolder> {
 
     private Context act;
-    private MonthDays monthDays;
+    private final MonthDays monthDays;
 
     public CalendarAdapter(Context context, MonthDays monthDays) {
         this.act = context;
         this.monthDays = monthDays;
-        Log.i("ct7liang123", monthDays.weekIndex + "");
     }
 
     @NonNull
@@ -36,9 +34,18 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.DayVie
         if(i < monthDays.weekIndex - 1){
             dayViewHolder.tv.setText("");
         }else{
-            dayViewHolder.tv.setText(monthDays.list.get(i - monthDays.weekIndex + 1).day+"");
+            String s = String.valueOf(monthDays.list.get(i - monthDays.weekIndex + 1).day);
+            dayViewHolder.tv.setText(s);
+            if(monthDays.haveDataDays.contains(s)){
+                Log.i("ct7liang123", s + ": true");
+                dayViewHolder.tv.setTextColor(Color.parseColor("#FFFFFF"));
+                dayViewHolder.tv.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+            }else{
+                Log.i("ct7liang123", s + ": false");
+                dayViewHolder.tv.setTextColor(Color.parseColor("#CDCDCD"));
+                dayViewHolder.tv.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+            }
         }
-
         if(i - monthDays.weekIndex + 1 == monthDays.currentIndex){
             dayViewHolder.view.setBackgroundResource(R.drawable.shape_calendar_day_bg1);
         }else{
@@ -79,4 +86,11 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.DayVie
         void onClick(View v, int position, MonthDays.Day day);
     }
 
+    /**
+     * 获取适配器更新之后,选中的日期,防止上次选中为31号,下次选中后为28号
+     * @return position
+     */
+    public int getCurrentPosition(){
+        return this.monthDays.currentIndex;
+    }
 }

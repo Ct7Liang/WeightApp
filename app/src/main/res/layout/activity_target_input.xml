@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TargetInputActivity"
+    android:background="#f5f5f5">
+
+    <LinearLayout
+        android:id="@+id/top_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/main_bg">
+        <ImageView
+            android:onClick="navigatorBack"
+            android:src="@mipmap/back"
+            android:padding="21dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"/>
+        <TextView
+            android:id="@+id/title"
+            android:text="目标体重(kg)"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/target"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_target_input"
+        android:layout_margin="10dp"
+        android:inputType="numberDecimal"
+        android:hint="请输入你的期望体重(kg)"
+        android:paddingLeft="15dp"
+        android:textSize="16sp"/>
+    <Button
+        android:onClick="confirm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="保存"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#7668F9"/>
+
+</LinearLayout>

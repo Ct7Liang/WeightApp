@@ -49,7 +49,7 @@ public class TimeUtils {
             }else{
                 num = 28;
             }
-        }if( m == 4 || m == 6 || m == 9 || m == 11 ){
+        }else if( m == 4 || m == 6 || m == 9 || m == 11 ){
             num = 30;
         }else{
             num = 31;
@@ -78,9 +78,6 @@ public class TimeUtils {
             MonthDays.Day day = new MonthDays.Day(i+1, 0);
             monthDays.list.add(day);
         }
-
-        Log.i("ct7liang123", "12212122");
-
         return monthDays;
     }
 

@@ -20,8 +20,14 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:orientation="horizontal">
+            <ImageView
+                android:onClick="navigatorBack"
+                android:src="@mipmap/back"
+                android:padding="21dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="日历"
                 android:textSize="20sp"
@@ -34,33 +40,31 @@
             android:layout_height="50dp"
             android:gravity="center"
             android:orientation="horizontal">
+            <ImageView
+                android:onClick="preMonth"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/angle_left"
+                android:padding="18dp"/>
             <TextView
-                android:id="@+id/pre"
-                android:textSize="20sp"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:text="上"/>
-            <TextView
+                android:onClick="returnToday"
                 android:id="@+id/selectTime"
                 android:textSize="16sp"
                 android:textColor="#FFFFFF"
                 android:gravity="center"
                 android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:text=""/>
-            <TextView
+                android:layout_height="match_parent"/>
+            <ImageView
+                android:onClick="nextMonth"
                 android:id="@+id/next"
-                android:textSize="20sp"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_width="60dp"
-                android:layout_height="match_parent"
-                android:text="下"/>
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/angle_right"
+                android:padding="18dp"/>
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
+            android:overScrollMode="never"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:id="@+id/recycler_view"
@@ -75,6 +79,7 @@
         android:orientation="horizontal"
         android:padding="20dp">
         <LinearLayout
+            android:onClick="changeData"
             android:background="@drawable/shape_day_weight_bg1"
             android:gravity="center"
             android:layout_width="0dp"
@@ -82,6 +87,7 @@
             android:layout_height="100dp"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/am"
                 android:gravity="center"
                 android:text="75kg"
                 android:textSize="24sp"
@@ -98,6 +104,7 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
         <LinearLayout
+            android:onClick="changeData"
             android:background="@drawable/shape_day_weight_bg2"
             android:layout_marginLeft="20dp"
             android:gravity="center"
@@ -106,6 +113,7 @@
             android:layout_height="100dp"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/pm"
                 android:gravity="center"
                 android:text="75kg"
                 android:textSize="24sp"
